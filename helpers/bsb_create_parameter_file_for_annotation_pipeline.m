@@ -1,4 +1,4 @@
-function params = bsb_create_parameter_file_for_annotation_pipeline(target_file,varargin)
+function params = bsb_create_parameter_file_for_annotation_pipeline(target_file,input_params, varargin)
 % Yarden 2022
 % This function creates a .mat file with all the parameters needed to run
 % the script ../GitHub/BirdSongBout/CanaryBoutPipeLine.m
@@ -20,16 +20,15 @@ if is_new == 0
     load(target_file,'params');
 end
 
-params.GitHubDir = '/Users/yardenc/Documents/GitHub';
-params.workDIR = '/Users/yardenc/Documents/Experiments/CanaryBoutAnnotation/rb4459';
-params.annotation_file = '/Users/yardenc/Dropbox (Weizmann Institute)/Datasets/Cohen_CanarySongs/rb4459/rb4459_annotation_Aug_2019_Haley_4TF.mat';
-params.template_file = '/Users/yardenc/Dropbox (Weizmann Institute)/Datasets/Cohen_CanarySongs/rb4459/rb4459_template_Aug_2019_Haley_4TF.mat';
-params.estimates_file = '/Users/yardenc/Dropbox (Weizmann Institute)/Datasets/Cohen_CanarySongs/rb4459/Results_rb4459_Aug302019.mat';
-params.new_annotation_file = '/Users/yardenc/Dropbox (Weizmann Institute)/Datasets/Cohen_CanarySongs/rb4459/rb4459_annotation_Sep_2019_Haley.mat';
-params.path_to_SyllableSpects = '';
+
+params.GitHubDir = input_params.GitHubDir;
+params.workDIR = input_params.workDIR;
+params.annotation_file = input_params.annotation_file;
+params.template_file = input_params.template_file;
+params.estimates_file = input_params.estimates_file;
+params.new_annotation_file = input_params.new_annotation_file;
+params.path_to_SyllableSpects = input_params.path_to_SyllableSpects;
 save(target_file,'params');
-
-
 
 %%%%%%%%%%%% Legacy parameters:
 %workDIR = '/Users/yardenc/Documents/Experiments/CanaryBoutAnnotation/llb11/llb11 WAV files';
